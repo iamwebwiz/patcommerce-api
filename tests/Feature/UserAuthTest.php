@@ -19,6 +19,18 @@ class UserAuthTest extends TestCase
 
         $response = $this->json('POST', '/api/register', $data);
 
-        $response->assertSuccessful();
+        $response->assertSee('token')->assertStatus(201);
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_log_user_in()
+    {
+        $data = ['email' => $this->user->email, 'password' => 'secret'];
+
+        $response = $this->json('POST', '/api/login', $data);
+
+        $response->assertSee('token')->assertStatus(200);
     }
 }
