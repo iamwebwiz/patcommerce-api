@@ -26,7 +26,7 @@ class ProductTest extends TestCase
         $data = [
             'name' => $this->faker->name,
             'description' => $this->faker->sentence,
-            'price' => $this->faker->randomNumber,
+            'price' => $this->faker->randomFloat,
             'category_id' => factory(Category::class)->create()->id,
         ];
 
@@ -60,5 +60,17 @@ class ProductTest extends TestCase
         $this->json('PATCH', "/api/products/$product->id", ['name' => $this->faker->name])
             ->assertOk()
             ->assertSee('data');
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_delete_a_product()
+    {
+        $product = factory(Product::class)->create();
+
+        $this->json('DELETE', "/api/products/$product->id")
+            ->assertStatus(204)
+            ->assertSuccessful();
     }
 }
