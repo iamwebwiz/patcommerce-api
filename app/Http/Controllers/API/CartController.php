@@ -27,7 +27,6 @@ class CartController extends Controller
     {
         $validator = validator($request->all(), [
             'product_id' => 'required|integer',
-            'user_id' => 'required|integer',
             'price' => 'required|numeric',
             'quantity' => 'numeric',
         ]);
@@ -35,7 +34,7 @@ class CartController extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'status' => 'error',
-                'errors' => $validator->errors()->toJson(),
+                'errors' => $validator->errors(),
             ]);
         }
 
@@ -47,5 +46,15 @@ class CartController extends Controller
         ]);
 
         return new CartResource($cart);
+    }
+
+    public function remove(Cart $cart)
+    {
+        $cart->delete();
+
+        return response()->json([
+            'message' => 'Item removed from cart.',
+            'status' => 'success',
+        ], 200);
     }
 }
