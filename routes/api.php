@@ -30,4 +30,9 @@ Route::namespace ('API')->group(function () {
         Route::patch('/{product}', 'ProductController@update');
         Route::delete('/{product}', 'ProductController@destroy');
     });
+
+    Route::prefix('cart')->group(function () {
+        Route::get('/', 'CartController@index');
+        Route::post('/add', 'CartController@store');
+    });
 });
