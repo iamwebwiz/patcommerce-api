@@ -34,5 +34,13 @@ Route::namespace ('API')->group(function () {
     Route::prefix('cart')->group(function () {
         Route::get('/', 'CartController@index');
         Route::post('/add', 'CartController@store');
+        Route::delete('/{cart}', 'CartController@remove');
+        Route::get('/flush', 'CartController@flush');
+    });
+
+    Route::prefix('orders')->group(function () {
+        Route::get('/', 'OrderController@index');
+        Route::post('/new', 'OrderController@store');
+        Route::delete('/{order}', 'OrderController@destroy');
     });
 });

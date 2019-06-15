@@ -57,4 +57,20 @@ class CartController extends Controller
             'status' => 'success',
         ], 200);
     }
+
+    /**
+     * Remove all items in user cart
+     */
+    public function flush(Request $request)
+    {
+        $cart = Cart::whereUserId(Auth::id())->get();
+
+        foreach ($cart as $item) {
+            $item->delete();
+        }
+
+        return response()->json([
+            'status' => 'success',
+        ], 200);
+    }
 }
