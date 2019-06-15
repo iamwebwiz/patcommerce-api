@@ -22,4 +22,12 @@ Route::namespace ('API')->group(function () {
         Route::patch('/{category}', 'CategoryController@update');
         Route::delete('/{category}', 'CategoryController@destroy');
     });
+
+    Route::prefix('products')->group(function () {
+        Route::get('/', 'ProductController@index');
+        Route::post('/', 'ProductController@store');
+        Route::get('/{product}', 'ProductController@show');
+        Route::patch('/{product}', 'ProductController@update');
+        Route::delete('/{product}', 'ProductController@destroy');
+    });
 });

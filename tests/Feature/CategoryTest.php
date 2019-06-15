@@ -10,7 +10,7 @@ class CategoryTest extends TestCase
     /**
      * @test
      */
-    public function it_can_show_categories()
+    public function it_can_fetch_categories()
     {
         $this->json('GET', '/api/categories')->assertStatus(200);
     }
