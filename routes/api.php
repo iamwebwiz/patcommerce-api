@@ -14,4 +14,12 @@
 Route::namespace ('API')->group(function () {
     Route::post('/register', 'AuthController@register');
     Route::post('/login', 'AuthController@login');
+
+    Route::prefix('categories')->group(function () {
+        Route::get('/', 'CategoryController@index');
+        Route::post('/', 'CategoryController@store');
+        Route::get('/{category}', 'CategoryController@show');
+        Route::patch('/{category}', 'CategoryController@update');
+        Route::delete('/{category}', 'CategoryController@destroy');
+    });
 });

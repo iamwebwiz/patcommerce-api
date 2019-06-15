@@ -9,7 +9,7 @@ class UserAuthTest extends TestCase
     /**
      * @test
      */
-    public function it_can_register_user()
+    public function it_can_create_a_user()
     {
         $data = [
             'name' => $this->faker->name,
@@ -20,6 +20,8 @@ class UserAuthTest extends TestCase
         $response = $this->json('POST', '/api/register', $data);
 
         $response->assertSee('token')->assertStatus(201);
+
+        $this->assertDatabaseHas('users', collect($data)->only(['email', 'name'])->toArray());
     }
 
     /**
