@@ -49,7 +49,7 @@ class CategoryTest extends TestCase
     {
         $category = factory(Category::class)->create();
 
-        $this->json('PATCH', "/api/categories/$category->id", ['name' => 'modified name'])
+        $this->json('PATCH', "/api/categories/$category->id", ['name' => $this->faker->name])
             ->assertSee('data');
     }
 
