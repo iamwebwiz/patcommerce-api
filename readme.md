@@ -200,8 +200,8 @@ _Delete a product_
 
 #### GET /api/cart
 
-_Fetch a user's cart_
-_Requires authentication_
+-   _Fetch a user's cart_
+-   _Requires authentication_
 
 -   Header
     -   Authorization: Bearer token (token obtained from login/signup)
@@ -211,8 +211,8 @@ _Requires authentication_
 
 #### POST /api/cart/add
 
-_Add an item to cart_
-_Requires authentication_
+-   _Add an item to cart_
+-   _Requires authentication_
 
 -   Form fields
     -   price
@@ -224,8 +224,8 @@ _Requires authentication_
 
 #### DELETE /api/cart/:id
 
-_Removes an item from user cart_
-_Requires authentication_
+-   _Removes an item from user cart_
+-   _Requires authentication_
 
 -   URL parameters
     -   id: the cart id
@@ -236,8 +236,8 @@ _Requires authentication_
 
 #### GET /api/orders
 
-_Get a user's orders_
-_Requires authentication_
+-   _Get a user's orders_
+-   _Requires authentication_
 
 -   Response
     -   data: array
@@ -245,16 +245,16 @@ _Requires authentication_
 
 #### POST /api/orders/new
 
-_Create a new order_
-_Requires authentication_
+-   _Create a new order_
+-   _Requires authentication_
 
 -   Response
     -   status: 'success'
 
 #### DELETE /api/orders/:id
 
-_Deletes an order_
-_Requires authentication_
+-   _Deletes an order_
+-   _Requires authentication_
 
 -   Response
     -   status 204
