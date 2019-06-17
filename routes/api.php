@@ -14,6 +14,7 @@
 Route::namespace ('API')->group(function () {
     Route::post('/register', 'AuthController@register');
     Route::post('/login', 'AuthController@login');
+    Route::get('/logout', 'AuthController@logout');
 
     Route::prefix('categories')->group(function () {
         Route::get('/', 'CategoryController@index');
