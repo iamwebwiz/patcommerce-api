@@ -69,14 +69,20 @@ composer test
 <details>
   <summary>POST /register</summary>
   <br>
-  _Registers a user_
-  - Form fields:
-    - name: string
-    - email: string
-    - password: string
-  - Response
-    - token
-    - user
+  <i>Registers a user</i>
+  <ul>
+      <li>Form fields:
+          <ul>
+              <li>name: string</li>
+              <li>email: string</li>
+              <li>password: string</li>
+          </ul>
+          <ul>
+              <li>token</li>
+              <li>user</li>
+          </ul>
+      </li>
+    </ul>
 </details>
 
 <details>
